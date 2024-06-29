@@ -1,0 +1,52 @@
+<div class="mt-4 container">
+  <h3>Create User</h3>
+  <form class="mt-5" method="POST" action="/api/userList/store">
+    <div class="form-group">
+      <label for="inputEmail">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="input-email"
+        name="email"
+        placeholder="Enter email"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="input-password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="input-password"
+        name="password"
+        placeholder="Password"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="input-isAdmin">Is Admin</label>
+      {{! <input type="text" name="isAdmin" value="false" /> }}
+      <select name="isAdmin" id="" class="form-control">
+        <option value="true">True</option>
+        <option value="false" selected>False</option>
+      </select>
+
+    </div>
+
+
+    <div class="form-group">
+      <label for="input-file">Upload JPEG File</label>
+      <input
+        type="file"
+        class="form-control-file"
+        id="input-file"
+        name="avatar"
+        accept="image/jpeg"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4">Create User</button>
+  </form>
+</div>

@@ -1,0 +1,75 @@
+
+    <div class="m-4">
+        <table class="table table-striped" id="message-table">
+            <thead class="table-header">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Chat ID</th>
+                    <th scope="col">Sender ID</th>
+                    <th scope="col">Text</th>
+                    <th scope="col">Create At</th>
+                    <th scope="col">Update At</th>
+                    <th scope="col" class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each messages}}
+                <tr>
+                    <td>{{sum @index 1}}</td>
+                    <td>{{this._id}}</td>
+                    <td>{{this.chatId}}</td>
+                    <td>{{this.senderId}}</td>
+                    <td>{{this.text}}</td>
+                    <td>{{formatDate this.createdAt}}</td>
+                    <td>{{formatDate this.updatedAt}}</td>
+                    <td>
+                        <a type="button" class="btn btn-outline-danger btn-link" data-toggle="modal"
+                            data-target="#delete-message-modal" data-id="{{this._id}}">Delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+{{!--DELETE FORM HIDENED--}}
+<form name="name-delete-message-form" method="POST"></form>
+
+{{!-- Modal confirm delete --}}
+<div id="delete-message-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: orange;">
+                <h5 class="modal-title" id="exampleModalLabel">Warning DELETE MESSAGE</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Do you sure about DELETE this MESSAGE</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-delete-message-modal" class="btn btn-danger">CONFIRM</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var vMessageId;
+        var vBtnDeleteMessage = $("#btn-delete-message-modal");
+        var vDeleteForm = document.forms['name-delete-message-form'];
+
+        $('#delete-message-modal').on('show.bs.modal', function (event) {
+            var vButton = $(event.relatedTarget);
+            vMessageId = vButton.data('id');
+        })
+
+        vBtnDeleteMessage.click(function () {
+            vDeleteForm.action = '/api/messageList/' + vMessageId +'?_method=DELETE';
+            vDeleteForm.submit();
+        });
+    })
+</script>

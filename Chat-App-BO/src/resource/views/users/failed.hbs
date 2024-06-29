@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="notification">
+        <h2>ADD USER FAILED</h2>
+        <p>ERROR: DUPLICATE EMAIL</p>
+        <a>The website will automatically redirect to the home page within 3 seconds</a>
+    </div>
+</div>
+<script>
+    // Chuyển hướng về trang chủ sau 5 giây
+    setTimeout(function () {
+        window.location.href = "/api/userList";
+    }, 3000);
+</script>

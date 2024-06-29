@@ -1,0 +1,96 @@
+@import 'variable';
+
+.test {
+  background-color: red;
+}
+
+.btn-list {
+  margin-right: 12px;
+}
+
+.btn-list:hover {
+  cursor: pointer;
+  background-color: lightblue;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.notification {
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffedee;
+  border: 1px solid #f5c6cb;
+  font-size: large;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.notification h2 {
+  color: red;
+}
+
+.notification p {
+  color: $error-color;
+  font-weight: 2rem;
+  line-height: 5rem;
+}
+
+#admin-logo {
+  color: $white-text;
+  font-size: 1.8rem;
+  font-weight: 900;
+  // background-color: #51aeff;
+  border: 1px solid beige;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+#admin-logo {
+  background-color: #004080;
+  /* Màu xanh đậm ban đầu */
+  animation: background-animation 5s linear infinite;
+}
+
+@keyframes background-animation {
+  0% {
+    background-color: #0a3c6f;
+    color: white;
+    /* Màu xanh đậm ban đầu */
+  }
+  25% {
+    background-color: #006fdf;
+    color: rgb(250, 250, 50);
+    /* Màu xanh đậm ban đầu */
+  }
+
+  50% {
+    background-color: #2398e5;
+    color: black;
+    /* Màu xanh dương */
+  }
+  75% {
+    background-color: #006fdf;
+    color: rgb(204, 246, 34);
+    /* Màu xanh dương */
+  }
+
+  100% {
+    background-color: #004080;
+    /* Màu xanh đậm ban đầu */
+  }
+}
+
+.table-header {
+  background-color: #51aeff;
+  height: 100px;
+  text-align: center;
+}
+
+td {
+  text-align: center;
+}
+
+.user-action {
+  display: flex;
+  gap: 2px;
+}

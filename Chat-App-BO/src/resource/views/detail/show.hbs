@@ -1,0 +1,14 @@
+
+<div class="container d-flex align-items-center justify-content-center">
+    <div class="card">
+        <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">User Name: {{user.username}}</h5>
+            <p class="card-text" style="font-weight: 1.2rem">Email: {{user.email}}</p>
+            <p class="card-text" style="font-weight: 1.2rem">Password: {{user.password}}</p>
+            <p class="card-text">Code: {{user.code}}</p>
+            <p class="card-text">Is Admin: {{user.isAdmin}}</p>
+            <a href="/api/userList" class="btn btn-primary">Go to User List</a>
+        </div>
+    </div>
+</div>
